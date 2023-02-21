@@ -1,0 +1,14 @@
+<h2>Search your character here!</h2>
+
+<form [formGroup]="searchForm" (ngSubmit)="submitSearch()">
+    <table>
+        <tr>
+            <td>Search Your Character: </td>
+            <td><input type="text" formControlName="characterName"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">Search</button></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,37 @@
+<p>character-details works!</p>
+
+<div *ngIf="marvelCharacter">
+<img src="{{marvelCharacter.image}}" width=300 height="auto">
+<h2>{{marvelCharacter.name}}</h2>
+<h3>{{marvelCharacter.description}}</h3>
+<h3>Learn more:</h3>
+<a href="{{marvelCharacter.details}}">{{marvelCharacter.details}}</a>
+</div>
+<hr>
+
+<div *ngIf="marvelCharacter.comments">
+    <table *ngFor="let c of marvelCharacter.comments">
+        <tr>
+            <td>{{c}}</td>
+        </tr>
+    </table>
+
+</div>
+<hr>
+<form [formGroup]="commentsForm" (ngSubmit)="submitComments(marvelCharacter.id)">
+    <table>
+        <tr>
+            <td>Comments</td>
+            <td><textarea formControlName="comments" cols="50" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Post Comments</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<hr>
+<button [routerLink]="['']">Home</button>
+

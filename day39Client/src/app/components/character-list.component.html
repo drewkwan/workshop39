@@ -1,0 +1,34 @@
+<p>character-list works!</p>
+<div *ngIf="marvelCharacters.length<=0">
+    <h2>No such character exists! Go make yourself and get rich omg!</h2>
+</div>
+<div *ngFor="let mc of marvelCharacters">
+    <table style="width:100%">
+        <tr>
+            <th style="width:25%">Image</th>
+            <th style="width:25%">ID</th>
+            <th style="width:25%">Name</th>
+            <th style="width:25%">Description</th>
+            <th style="width:25%">Details</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><img src={{mc.image}} width="400" height="auto"></td>
+            <td>{{mc.id}}</td>
+            <td>{{mc.name}}</td>
+            <td>{{mc.description}}</td>
+            <td><a href={{mc.details}}>{{mc.details}}</a></td>
+            <td>
+                <button (click)="viewDetails(mc.id)">View</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<button [routerLink]="['']">Back</button>
+
+<!-- id:number;
+    name: string;
+    description:string;
+    image:string;
+    details: string; -->
